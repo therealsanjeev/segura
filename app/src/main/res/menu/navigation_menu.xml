@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/home"/>
+    <item android:id="@+id/profile"
+        android:icon="@drawable/ic_person_black_24dp"
+        android:title="@string/profile"/>
+    <item android:id="@+id/feedback"
+        android:icon="@drawable/ic_feedback_black_24dp"
+        android:title="@string/feedback"/>
+    <item android:id="@+id/aboutus"
+        android:icon="@drawable/ic_bug_report_black_24dp"
+        android:title="@string/about_us"/>
+    <item android:id="@+id/privacy"
+        android:icon="@drawable/ic_priority_high_black_24dp"
+        android:title="@string/privacy_policy"/>
+</menu>
