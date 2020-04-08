@@ -10,6 +10,7 @@
 
     <include layout="@layout/main_contents"/>
 
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -17,10 +18,12 @@
         <androidx.appcompat.widget.Toolbar
             android:elevation="10dp"
             android:id="@+id/toolbar"
+            android:fitsSystemWindows="true"
             android:theme="@style/ThemeOverlay.AppCompat.Dark"
             android:background="@color/colorPrimary"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"/>
+
     </RelativeLayout>
 
 

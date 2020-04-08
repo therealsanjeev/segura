@@ -1,51 +1,157 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:layout_height="wrap_content">
-    <LinearLayout
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:background="@color/colorAccent"
+    android:layout_height="match_parent">
+    <TextView
+        android:background="@color/back"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="80dp"/>
+    <LinearLayout
+        android:elevation="4dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:orientation="vertical"
+        android:background="@drawable/rectangular_back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
         <TextView
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="70dp"
             android:textSize="40sp"
             android:text="Dashboard"
+            android:textStyle="italic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"/>
+            android:textColor="@color/colorPrimary"/>
 
+
+        <TextView
+            android:layout_margin="10dp"
+            android:textColor="@color/textColor"
+            android:text="Welcome to Segura Luggage Service"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
         <Button
             android:layout_marginTop="5dp"
             android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@color/white" />
-        <TextView
-            android:layout_marginLeft="10dp"
-            android:textColor="@color/white"
-            android:text="Welcome to Segura Luggage Service"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:textColor="@color/white"
-            android:layout_margin="10dp"
-            android:textSize="25sp"
-            android:text="Sanjeev"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="1dp"
+            android:background="@color/line" />
+
+        <LinearLayout
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:textColor="@color/textColor"
+                android:layout_margin="10dp"
+                android:textSize="25sp"
+                android:text="Sanjeev"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_marginLeft="100dp"
+                android:layout_gravity="center_vertical"
+                android:textSize="25sp"
+                android:textColor="@color/textColor"
+                android:text="300$"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
 
     </LinearLayout>
+    <TextView
+        android:textStyle="bold"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="15sp"
+        android:text="DATA :"
+        android:textColor="@color/textColorlight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
     <LinearLayout
+        android:elevation="4dp"
+        android:background="@drawable/rectangular_back"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:orientation="vertical"
-        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <TextView
-            android:text="Welcome to Segura Luggage Service"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:textColor="@color/textColor"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:text="Pending"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:textColor="@color/textColor"
+                android:gravity="center"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:text="Completed"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+        <Button
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/line" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:textColor="@color/textColor"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:textSize="35sp"
+                android:textStyle="bold"
+                android:text="30"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:textColor="@color/textColor"
+                android:gravity="center"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:textSize="35sp"
+                android:textStyle="bold"
+                android:text="5"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
     </LinearLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:elevation="6dp"
+        android:id="@+id/fab_btn"
+        android:layout_marginTop="100dp"
+        android:layout_marginRight="15sp"
+        android:layout_gravity="end|bottom"
+        android:layout_width="wrap_content"
+        android:src="@drawable/ic_add_circle_outline_black_24dp"
+        android:layout_height="wrap_content"
+        app:fabSize="normal"
+        app:backgroundTint="@color/back"/>
 </LinearLayout>

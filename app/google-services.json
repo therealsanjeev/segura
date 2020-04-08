@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "263793474923",
+    "firebase_url": "https://segura-luggage.firebaseio.com",
+    "project_id": "segura-luggage",
+    "storage_bucket": "segura-luggage.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:263793474923:android:6002d0ee9e3af602f2e02e",
+        "android_client_info": {
+          "package_name": "com.thesegura.co.seguraluggage"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "263793474923-opnbs0u05d01vg0chjj6fcd0pqkua1rf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCo3dJTb5AsCFn35Nbv3avmRAfXQKjaQtw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "263793474923-opnbs0u05d01vg0chjj6fcd0pqkua1rf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

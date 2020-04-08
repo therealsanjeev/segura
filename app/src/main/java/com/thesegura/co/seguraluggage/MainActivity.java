@@ -10,7 +10,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -39,6 +41,15 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 UserMenu(menuItem);
                 return false;
+            }
+        });
+        FloatingActionButton fab_btn=findViewById(R.id.fab_btn);
+        fab_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this,"ADD YOUR CUSTOMER",Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(MainActivity.this,addCustomer.class);
+                startActivity(i);
             }
         });
     }
