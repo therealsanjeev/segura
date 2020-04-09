@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Segura Luggage</string>
+    <string name="app_name">Segura Luggage Manager</string>
     <string name="open">Drawer Open</string>
     <string name="close">Drawer Close</string>
     <string name="home">Home</string>

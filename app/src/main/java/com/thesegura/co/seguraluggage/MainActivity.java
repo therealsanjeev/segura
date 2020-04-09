@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+import com.thesegura.co.seguraluggage.UserData.addCustomer;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -48,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(MainActivity.this,"ADD YOUR CUSTOMER",Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(MainActivity.this,addCustomer.class);
+                Intent i = new Intent(MainActivity.this, addCustomer.class);
                 startActivity(i);
             }
         });
