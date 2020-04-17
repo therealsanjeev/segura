@@ -17,10 +17,12 @@ import com.google.android.gms.tasks.TaskExecutors;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
 import com.thesegura.co.seguraluggage.MainActivity;
 import com.thesegura.co.seguraluggage.R;
+
 
 import java.util.concurrent.TimeUnit;
 
@@ -31,6 +33,7 @@ public class verifyOTP extends AppCompatActivity {
     FirebaseAuth auth;
     String codeSent;
     ProgressBar progressBar;
+    FirebaseUser user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +41,9 @@ public class verifyOTP extends AppCompatActivity {
 
         progressBar=findViewById(R.id.progressBarOTP);
         progressBar.setVisibility(View.INVISIBLE);
+
         auth=FirebaseAuth.getInstance();
+        user=auth.getCurrentUser();
         etOtp=findViewById(R.id.etOtp);
         btVerify=findViewById(R.id.btVerifyNum);
         //sending otp:
@@ -73,11 +78,20 @@ public class verifyOTP extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
                         if (task.isSuccessful()) {
-                            Toast.makeText(getApplicationContext(),"Welcome Back !",Toast.LENGTH_LONG).show();
-                            Intent intent=new Intent(verifyOTP.this, MainActivity.class);
-                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                            startActivity(intent);
+
+                            if(user.getUid()!=null){
+                                Intent intent=new Intent(verifyOTP.this, MainActivity.class);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                startActivity(intent);
+                            }else{
+                                Toast.makeText(getApplicationContext(),"Welcome Back !",Toast.LENGTH_LONG).show();
+                                Intent intent=new Intent(verifyOTP.this, profile_details.class);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                startActivity(intent);
+                            }
+
                         } else {
                             Toast.makeText(verifyOTP.this,"Error ! "+task.getException().getMessage(),Toast.LENGTH_LONG).show();
                         }
@@ -88,7 +102,7 @@ public class verifyOTP extends AppCompatActivity {
     private void sendOTP(String num) {
 
         PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                num,
+                "+91"+num,
                 60, TimeUnit.SECONDS,
                 TaskExecutors.MAIN_THREAD,
                 mCallbacks);

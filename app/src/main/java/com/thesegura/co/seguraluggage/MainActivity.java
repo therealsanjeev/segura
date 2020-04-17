@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -17,16 +18,24 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.thesegura.co.seguraluggage.UserData.addCustomer;
 import com.thesegura.co.seguraluggage.verification.login;
+import com.thesegura.co.seguraluggage.profile;
 
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
+    TextView tvname;
     private ActionBarDrawerToggle actionBarDrawerToggle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        tvname=findViewById(R.id.tvDashName);
+        Bundle extras = getIntent().getExtras();
+        if(extras !=null) {
+            String value = extras.getString("name");
+            tvname.setText(value);
+        }
 
         //toolBar:
         Toolbar toolbar=findViewById(R.id.toolbar);
@@ -64,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.home:
                 break;
             case R.id.profile:
+                startActivity(new Intent(getApplicationContext(), profile.class));
                 break;
             case R.id.feedback:
                 break;
