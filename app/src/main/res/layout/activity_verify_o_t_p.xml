@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".verification.verifyOTP">
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_marginTop="20dp"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/logocircular"
+            android:elevation="5dp"
+            />
+        <TextView
+            android:layout_marginTop="20sp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:text="Welcome Segura Manager App"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_weight="2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <TextView
+            android:textSize="20sp"
+            android:textAllCaps="true"
+            android:text="Verify your phone number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <EditText
+            android:inputType="number"
+            android:id="@+id/etOtp"
+            android:layout_marginTop="5dp"
+            android:layout_gravity="center"
+            android:hint="Enter OTP"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:background="@drawable/btn_back"
+            android:id="@+id/btVerifyNum"
+            android:elevation="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:text="Number Verify"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:layout_width="150dp"
+            android:layout_height="40dp"/>
+        <ProgressBar
+            android:layout_marginTop="5dp"
+            android:id="@+id/progressBarOTP"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

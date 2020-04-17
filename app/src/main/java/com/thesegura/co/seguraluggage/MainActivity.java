@@ -14,28 +14,32 @@ import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.thesegura.co.seguraluggage.UserData.addCustomer;
+import com.thesegura.co.seguraluggage.verification.login;
+
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
-    private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
-    private NavigationView navigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         //toolBar:
         Toolbar toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+
         //navigationView :
-        drawerLayout=findViewById(R.id.drawer_layout);
-        actionBarDrawerToggle =new ActionBarDrawerToggle(MainActivity.this,drawerLayout,R.string.open,R.string.close);
+        DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
+        actionBarDrawerToggle =new ActionBarDrawerToggle(MainActivity.this, drawerLayout,R.string.open,R.string.close);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
-        navigationView=findViewById(R.id.navigationView);
-        View nav_view=navigationView.inflateHeaderView(R.layout.navigation_header);
+        NavigationView navigationView = findViewById(R.id.navigationView);
+        View nav_view= navigationView.inflateHeaderView(R.layout.navigation_header);
         navigationView.setItemIconTintList(null);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -67,6 +71,10 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.privacy:
                 break;
+            case R.id.singOut:
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(getApplicationContext(), login.class));
+                finish();
         }
     }
 
