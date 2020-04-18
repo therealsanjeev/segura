@@ -44,7 +44,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <EditText
-            android:inputType="number"
             android:id="@+id/etNamePro"
             android:layout_marginTop="15dp"
             android:layout_gravity="center"
@@ -78,6 +77,12 @@
             android:textStyle="bold"
             android:layout_width="150dp"
             android:layout_height="40dp"/>
+        <ProgressBar
+            android:layout_marginTop="5dp"
+            android:id="@+id/progressBarDetails"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
 
 

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:id="@+id/drawer_layout"
     android:background="@color/back"
-    tools:context=".MainActivity">
+    tools:context=".Dashboard">
 
     <include layout="@layout/main_contents"/>
 

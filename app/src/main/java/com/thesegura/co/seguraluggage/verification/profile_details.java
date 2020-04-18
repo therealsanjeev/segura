@@ -8,12 +8,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.thesegura.co.seguraluggage.MainActivity;
+import com.thesegura.co.seguraluggage.Dashboard;
 import com.thesegura.co.seguraluggage.R;
 
 import java.util.HashMap;
@@ -29,21 +30,26 @@ public class profile_details extends AppCompatActivity {
     String userID;
     FirebaseFirestore firebaseFirestore;
     FirebaseAuth auth;
+    ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile_details);
+        setContentView(R.layout.profile_details);
 
         etName=findViewById(R.id.etNamePro);
         etEmail=findViewById(R.id.etEmailPro);
         etPhone=findViewById(R.id.etphonePro);
         btnSave=findViewById(R.id.btnNextPro);
 
+        progressBar=findViewById(R.id.progressBarDetails);
+        progressBar.setVisibility(View.INVISIBLE);
+
         auth=FirebaseAuth.getInstance();
         firebaseFirestore=FirebaseFirestore.getInstance();
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressBar.setVisibility(View.VISIBLE);
                 String name=etName.getText().toString();
                 String email=etEmail.getText().toString();
                 String phone=etPhone.getText().toString();
@@ -57,7 +63,7 @@ public class profile_details extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void aVoid) {
                         Log.d(TAG,"onSuccess : manager Created "+userID);
-                        Intent intent=new Intent(profile_details.this, MainActivity.class);
+                        Intent intent=new Intent(profile_details.this, Dashboard.class);
                         startActivity(intent);
                     }
                 });

@@ -20,7 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
-import com.thesegura.co.seguraluggage.MainActivity;
+import com.thesegura.co.seguraluggage.Dashboard;
 import com.thesegura.co.seguraluggage.R;
 
 
@@ -37,13 +37,14 @@ public class verifyOTP extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_verify_o_t_p);
+        setContentView(R.layout.verify_otp);
 
         progressBar=findViewById(R.id.progressBarOTP);
         progressBar.setVisibility(View.INVISIBLE);
 
         auth=FirebaseAuth.getInstance();
         user=auth.getCurrentUser();
+
         etOtp=findViewById(R.id.etOtp);
         btVerify=findViewById(R.id.btVerifyNum);
         //sending otp:
@@ -78,19 +79,19 @@ public class verifyOTP extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
                         if (task.isSuccessful()) {
+//                            if(user!=null){
+//                                Intent intent=new Intent(verifyOTP.this, Dashboard.class);
+//                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//                                Toast.makeText(getApplicationContext(),"Welcome Back !",Toast.LENGTH_LONG).show();
+//                                startActivity(intent);
+//                            }else{
 
-                            if(user.getUid()!=null){
-                                Intent intent=new Intent(verifyOTP.this, MainActivity.class);
-                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                startActivity(intent);
-                            }else{
-                                Toast.makeText(getApplicationContext(),"Welcome Back !",Toast.LENGTH_LONG).show();
                                 Intent intent=new Intent(verifyOTP.this, profile_details.class);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                 startActivity(intent);
-                            }
+//                            }
 
                         } else {
                             Toast.makeText(verifyOTP.this,"Error ! "+task.getException().getMessage(),Toast.LENGTH_LONG).show();

@@ -1,6 +1,7 @@
 package com.thesegura.co.seguraluggage;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -16,26 +17,46 @@ import android.widget.Toast;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.thesegura.co.seguraluggage.UserData.addCustomer;
 import com.thesegura.co.seguraluggage.verification.login;
-import com.thesegura.co.seguraluggage.profile;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
-public class MainActivity extends AppCompatActivity {
+public class Dashboard extends AppCompatActivity {
 
     TextView tvname;
     private ActionBarDrawerToggle actionBarDrawerToggle;
+
+    FirebaseAuth auth;
+    FirebaseUser authUser;
+    FirebaseFirestore fs;
+    String managerID;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.dashboard);
         tvname=findViewById(R.id.tvDashName);
-        Bundle extras = getIntent().getExtras();
-        if(extras !=null) {
-            String value = extras.getString("name");
-            tvname.setText(value);
+
+        auth=FirebaseAuth.getInstance();
+        authUser=auth.getCurrentUser();
+        fs=FirebaseFirestore.getInstance();
+
+
+        if(authUser==null){
+            startActivity(new Intent(getApplicationContext(),login.class));
+            finish();
+        }else{
+            managerID=FirebaseAuth.getInstance().getCurrentUser().getUid();
         }
+        managerNameShowOnDash();
 
         //toolBar:
         Toolbar toolbar=findViewById(R.id.toolbar);
@@ -44,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
         //navigationView :
         DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
-        actionBarDrawerToggle =new ActionBarDrawerToggle(MainActivity.this, drawerLayout,R.string.open,R.string.close);
+        actionBarDrawerToggle =new ActionBarDrawerToggle(Dashboard.this, drawerLayout,R.string.open,R.string.close);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
         NavigationView navigationView = findViewById(R.id.navigationView);
@@ -61,13 +82,24 @@ public class MainActivity extends AppCompatActivity {
         fab_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this,"ADD YOUR CUSTOMER",Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(MainActivity.this, addCustomer.class);
+                Toast.makeText(Dashboard.this,"ADD YOUR CUSTOMER",Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(Dashboard.this, addCustomer.class);
                 startActivity(i);
             }
         });
     }
 
+    public  void managerNameShowOnDash(){
+
+        DocumentReference documentReference=fs.collection("Managers").document(managerID);
+        documentReference.addSnapshotListener( this, new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
+                tvname.setText( documentSnapshot.getString("Name"));
+            }
+        });
+
+    }
     private void UserMenu(MenuItem menuItem) {
         switch (menuItem.getItemId()){
             case R.id.home:
@@ -95,4 +127,5 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 }

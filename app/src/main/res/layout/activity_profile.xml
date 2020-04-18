@@ -6,66 +6,66 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".profile">
-    <include layout="@layout/tool_bar"/>
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/tool_bar" />
+
     <TextView
-        android:layout_margin="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
+android:layout_margin="20dp"
+        android:text="Profile"
+        android:textAllCaps="true"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp"
-        android:textAllCaps="true"
-        android:text="Profile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-    <RelativeLayout
-        android:layout_marginTop="100dp"
+        app:layout_constraintBottom_toTopOf="@+id/relativeLayout"
+        app:layout_constraintEnd_toEndOf="@+id/relativeLayout"
+        app:layout_constraintStart_toStartOf="@+id/relativeLayout" />
+
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="vertical"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
+        android:background="@drawable/rectangular_back"
+        android:elevation="5dp"
         android:layout_width="match_parent"
         android:layout_height="300dp">
+
         <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
             android:id="@+id/profile_image"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginLeft="10dp"
-            android:src="@drawable/profile_photo"
-            android:elevation="5dp"/>
+            android:elevation="5dp"
+            android:src="@drawable/profile_photo" />
+
         <TextView
             android:id="@+id/tvManagerNamePro"
-            android:layout_marginTop="20dp"
-            android:layout_alignParentRight="true"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="20sp"
-            android:textAllCaps="true"
-            android:text="manager name"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="manager name"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/tvManagerEmailPro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/tvManagerNamePro"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="-40dp"
             android:text="Email ID"
-            android:textAllCaps="true"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="20sp" />
+
         <TextView
             android:id="@+id/tvManagerPhonePro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/tvManagerEmailPro"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="-40dp"
             android:text="Phone number"
-            android:textAllCaps="true"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="20sp" />
 
-    </RelativeLayout>
+    </LinearLayout>
 
 </LinearLayout>
