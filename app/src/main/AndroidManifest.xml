@@ -9,21 +9,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".verification.profile_details"></activity>
-        <activity android:name=".profile"
-            android:parentActivityName=".Dashboard"/>
-        <activity android:name=".verification.verifyOTP" />
-        <activity android:name=".verification.login"/>
-        <activity
-            android:name=".UserData.addCustomer"
-            android:parentActivityName=".Dashboard" />
-        <activity android:name=".Dashboard" >
+        <activity android:name=".splashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".verification.profile_details" />
+        <activity
+            android:name=".profile"
+            android:parentActivityName=".Dashboard" />
+        <activity android:name=".verification.verifyOTP" />
+        <activity android:name=".verification.login" />
+        <activity
+            android:name=".UserData.addCustomer"
+            android:parentActivityName=".Dashboard" />
+
+        <activity android:name=".Dashboard"/>
     </application>
 
 </manifest>

@@ -5,87 +5,94 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".verification.profile_details">
-    <LinearLayout
-        android:gravity="center"
-        android:orientation="vertical"
-        android:layout_weight="1"
-        android:layout_width="match_parent"
-        android:layout_height="0dp">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_marginTop="20dp"
-            android:id="@+id/profile_image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/logocircular"
-            android:elevation="5dp"
-            />
-        <TextView
-            android:layout_marginTop="20sp"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:text="Welcome Segura Manager App"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
 
-    </LinearLayout>
-    <LinearLayout
-        android:gravity="center"
-        android:orientation="vertical"
-        android:layout_weight="3"
-        android:layout_width="match_parent"
-        android:layout_height="0dp">
-        <TextView
-            android:layout_marginBottom="50dp"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="18sp"
-            android:textAllCaps="true"
-            android:text="enter your personal details"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <EditText
-            android:id="@+id/etNamePro"
-            android:layout_marginTop="15dp"
-            android:layout_gravity="center"
-            android:hint="Name"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"/>
-        <EditText
-            android:id="@+id/etEmailPro"
-            android:layout_marginTop="10dp"
-            android:layout_gravity="center"
-            android:hint="Email ID"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"/>
-        <EditText
-            android:inputType="number"
-            android:id="@+id/etphonePro"
-            android:layout_marginTop="10dp"
-            android:layout_gravity="center"
-            android:hint="phone number"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"/>
-        <Button
-            android:background="@drawable/btn_back"
-            android:id="@+id/btnNextPro"
-            android:elevation="5dp"
-            android:layout_marginTop="15dp"
-            android:layout_gravity="center"
-            android:text="NEXt"
-            android:textSize="20sp"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:layout_width="150dp"
-            android:layout_height="40dp"/>
-        <ProgressBar
-            android:layout_marginTop="5dp"
-            android:id="@+id/progressBarDetails"
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_marginTop="20dp"
+                android:id="@+id/profile_image"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/logocircular"
+                android:elevation="5dp"
+                />
+            <TextView
+                android:layout_marginTop="20sp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:text="Welcome Segura Manager App"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_weight="3"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+            <TextView
+                android:layout_marginBottom="50dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp"
+                android:textAllCaps="true"
+                android:text="enter your personal details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <EditText
+                android:id="@+id/etNamePro"
+                android:layout_marginTop="15dp"
+                android:layout_gravity="center"
+                android:hint="Name"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"/>
+            <EditText
+                android:id="@+id/etEmailPro"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:hint="Email ID"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"/>
+            <EditText
+                android:inputType="number"
+                android:id="@+id/etphonePro"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:hint="phone number"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"/>
+            <Button
+                android:background="@drawable/btn_back"
+                android:id="@+id/btnNextPro"
+                android:elevation="5dp"
+                android:layout_marginTop="15dp"
+                android:layout_gravity="center"
+                android:text="NEXt"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:layout_width="150dp"
+                android:layout_height="40dp"/>
+            <ProgressBar
+                android:layout_marginTop="5dp"
+                android:id="@+id/progressBarDetails"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
 
 
-    </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
 
 </LinearLayout>
