@@ -9,6 +9,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -38,6 +39,7 @@ public class Dashboard extends AppCompatActivity {
     FirebaseUser authUser;
     FirebaseFirestore fs;
     String managerID;
+    private boolean backAlreadyPressed = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,6 +128,27 @@ public class Dashboard extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+    public void onBackPressed() {
+
+        if (backAlreadyPressed) {
+            // close the application
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            startActivity(intent);
+            super.onBackPressed();
+            return;
+        }
+        // first back press should set the variable to true & show a Toast to press again to close application
+        this.backAlreadyPressed = true;
+        Toast.makeText(this,"Press once more to exit", Toast.LENGTH_SHORT).show();
+        // set the variable to false if it takes more than 2sec for another back press
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                backAlreadyPressed = false;
+            }
+        }, 2000);
     }
 
 }

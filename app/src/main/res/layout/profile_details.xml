@@ -6,9 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".verification.profile_details">
 
-    <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
         <LinearLayout
             android:gravity="center"
             android:orientation="vertical"
@@ -91,8 +88,6 @@
 
 
         </LinearLayout>
-
-    </ScrollView>
 
 
 </LinearLayout>
