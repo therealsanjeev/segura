@@ -8,6 +8,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MenuItem;
@@ -15,6 +16,10 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -39,6 +44,8 @@ public class Dashboard extends AppCompatActivity {
     FirebaseUser authUser;
     FirebaseFirestore fs;
     String managerID;
+    GoogleSignInClient mGoogleSignInClient;
+
     private boolean backAlreadyPressed = false;
 
     @Override
@@ -51,7 +58,6 @@ public class Dashboard extends AppCompatActivity {
         authUser=auth.getCurrentUser();
         fs=FirebaseFirestore.getInstance();
 
-
         if(authUser==null){
             startActivity(new Intent(getApplicationContext(),login.class));
             finish();
@@ -59,6 +65,7 @@ public class Dashboard extends AppCompatActivity {
             managerID=FirebaseAuth.getInstance().getCurrentUser().getUid();
         }
         managerNameShowOnDash();
+        googleProfile();
 
         //toolBar:
         Toolbar toolbar=findViewById(R.id.toolbar);
@@ -89,6 +96,21 @@ public class Dashboard extends AppCompatActivity {
                 startActivity(i);
             }
         });
+    }
+
+    private void googleProfile() {
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
+        // Build a GoogleSignInClient with the options specified by gso.
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
+        if (acct != null) {
+            String personName = acct.getDisplayName();
+            String personEmail = acct.getEmail();
+            String personId = acct.getId();
+            Uri personPhoto = acct.getPhotoUrl();
+        }
     }
 
     public  void managerNameShowOnDash(){

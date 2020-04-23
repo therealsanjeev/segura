@@ -45,6 +45,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <EditText
+                android:maxLines="1"
                 android:id="@+id/etNamePro"
                 android:layout_marginTop="15dp"
                 android:layout_gravity="center"
@@ -52,6 +53,7 @@
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"/>
             <EditText
+                android:maxLines="1"
                 android:id="@+id/etEmailPro"
                 android:layout_marginTop="10dp"
                 android:layout_gravity="center"
@@ -59,6 +61,7 @@
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"/>
             <EditText
+                android:maxLines="1"
                 android:inputType="number"
                 android:id="@+id/etphonePro"
                 android:layout_marginTop="10dp"
