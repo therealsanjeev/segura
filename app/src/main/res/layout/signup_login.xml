@@ -79,6 +79,7 @@
             android:layout_height="wrap_content"/>
 
         <com.google.android.gms.common.SignInButton
+            android:textAlignment="center"
             android:id="@+id/sign_in_button"
             android:layout_width="200dp"
             android:layout_height="wrap_content" />

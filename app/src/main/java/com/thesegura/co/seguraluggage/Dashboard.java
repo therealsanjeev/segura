@@ -3,10 +3,13 @@ package com.thesegura.co.seguraluggage;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -134,9 +137,25 @@ public class Dashboard extends AppCompatActivity {
             case R.id.privacy:
                 break;
             case R.id.singOut:
-                FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(getApplicationContext(), login.class));
-                finish();
+                AlertDialog.Builder builder=new AlertDialog.Builder(this);
+                builder.setTitle("Sign Out");
+                builder.setMessage("Are you sure you want to exit? ").setCancelable(false)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                FirebaseAuth.getInstance().signOut();
+                                startActivity(new Intent(getApplicationContext(), login.class));
+                                finish();
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        });
+                AlertDialog alertDialog =builder.create();
+                alertDialog.show();
         }
     }
 
