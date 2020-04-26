@@ -23,9 +23,7 @@ import java.util.Map;
 public class profile_details extends AppCompatActivity {
 
     private static final String TAG ="h" ;
-    EditText etName;
-    EditText etEmail;
-    EditText etPhone;
+    EditText etName,etEmail,etPhone;
     Button btnSave;
     String userID;
     FirebaseFirestore firebaseFirestore;

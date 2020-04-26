@@ -20,6 +20,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -41,9 +42,7 @@ public class Dashboard extends AppCompatActivity {
     private ActionBarDrawerToggle actionBarDrawerToggle;
 
     FirebaseAuth auth;
-    FirebaseUser authUser;
     FirebaseFirestore fs;
-    String managerID;
     GoogleSignInClient mGoogleSignInClient;
 
     private boolean backAlreadyPressed = false;
@@ -55,17 +54,11 @@ public class Dashboard extends AppCompatActivity {
         tvname=findViewById(R.id.tvDashName);
 
         auth=FirebaseAuth.getInstance();
-        authUser=auth.getCurrentUser();
         fs=FirebaseFirestore.getInstance();
 
-        if(authUser==null){
-            startActivity(new Intent(getApplicationContext(),login.class));
-            finish();
-        }else{
-            managerID=FirebaseAuth.getInstance().getCurrentUser().getUid();
-        }
+
         managerNameShowOnDash();
-        googleProfile();
+//        googleProfile();
 
         //toolBar:
         Toolbar toolbar=findViewById(R.id.toolbar);
@@ -115,11 +108,14 @@ public class Dashboard extends AppCompatActivity {
 
     public  void managerNameShowOnDash(){
 
-        DocumentReference documentReference=fs.collection("Managers").document(managerID);
-        documentReference.addSnapshotListener( this, new EventListener<DocumentSnapshot>() {
+        DocumentReference documentReference=fs.collection("Managers").document(auth.getCurrentUser().getUid());
+        documentReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
-            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
-                tvname.setText( documentSnapshot.getString("Name"));
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                if(documentSnapshot.exists()){
+                    tvname.setText(documentSnapshot.getString("Name"));
+                }
+
             }
         });
 
