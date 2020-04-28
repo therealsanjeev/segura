@@ -11,6 +11,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,7 +19,6 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.common.base.MoreObjects;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
@@ -35,9 +35,10 @@ import java.io.ByteArrayOutputStream;
 
 public class profile extends AppCompatActivity {
 
-    TextView tvName,tvEmail,tvPhone;
+    TextView tvName,tvEmail,tvPhone,headerName,headerEmail;
     Toolbar toolbar;
     ImageView imageView;
+    ImageButton imageButton;
 
     FirebaseAuth auth;
     FirebaseFirestore fs;
@@ -48,21 +49,27 @@ public class profile extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.user_profile);
+        setContentView(R.layout.profile);
 
         toolbar = findViewById(R.id.toolBarOthers);
         toolbar.setTitle("Profile");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        auth=FirebaseAuth.getInstance();
-        fs=FirebaseFirestore.getInstance();
-        managerID=auth.getCurrentUser().getUid();
+
 
         tvName = findViewById(R.id.tvManagerNamePro);
         tvEmail = findViewById(R.id.tvManagerEmailPro);
         tvPhone = findViewById(R.id.tvManagerPhonePro);
         imageView=findViewById(R.id.profile_image);
+        imageButton=findViewById(R.id.changeProfile);
+//        headerName=findViewById(R.id.headerProfileName);
+//        headerEmail=findViewById(R.id.headerProfileEmail);
+
+
+        auth=FirebaseAuth.getInstance();
+        fs=FirebaseFirestore.getInstance();
+        managerID=auth.getCurrentUser().getUid();
 
         if(auth.getCurrentUser().getPhotoUrl()!=null){
             Glide.with(this).load(auth.getCurrentUser().getPhotoUrl()).into(imageView);
@@ -73,12 +80,17 @@ public class profile extends AppCompatActivity {
             @Override
             public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
                 assert documentSnapshot != null;
-                tvName.setText(documentSnapshot.getString("Name"));
-                tvEmail.setText(documentSnapshot.getString("email"));
+                String name=documentSnapshot.getString("Name");
+                String email=documentSnapshot.getString("email");
+                tvName.setText(name);
+                tvEmail.setText(email);
                 tvPhone.setText(documentSnapshot.getString("phone"));
+//                headerName.setText(name);
+//                headerEmail.setText(email);
             }
         });
     }
+
 
     public void profileImage(View view) {
         Intent intent=new Intent(MediaStore.ACTION_IMAGE_CAPTURE);

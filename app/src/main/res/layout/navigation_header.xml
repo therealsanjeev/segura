@@ -5,17 +5,20 @@
     android:background="@color/colorPrimary"
     android:orientation="vertical">
 
-    <ImageView
+
+    <de.hdodenhof.circleimageview.CircleImageView
         android:layout_gravity="center_horizontal"
-        android:id="@+id/imageView"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_margin="10dp"
-        android:src="@drawable/photo" />
+        android:layout_marginTop="20dp"
+        android:id="@+id/headerProfile"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/logocircular"
+        android:elevation="5dp"
+        />
 
     <TextView
         android:layout_gravity="center_horizontal"
-        android:id="@+id/textView"
+        android:id="@+id/headerProfileName"
         android:text="@string/app_name"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -25,7 +28,7 @@
 
     <TextView
         android:textColor="@color/white"
-        android:id="@+id/textView2"
+        android:id="@+id/headerProfileEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
