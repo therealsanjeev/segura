@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "263793474923-20vqqj8igpulmmkmb6csfd9obm2vor3p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.thesegura.co.seguraluggage",
+            "certificate_hash": "417274dba43dae8c3112b1c584858bd137bf38e1"
+          }
+        },
+        {
           "client_id": "263793474923-opnbs0u05d01vg0chjj6fcd0pqkua1rf.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -28,7 +36,7 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "263793474923-opnbs0u05d01vg0chjj6fcd0pqkua1rf.apps.googleusercontent.com",
+              "client_id": "263793474923-p848ka6msiahjdtrn906tivf65rkr0fb.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
