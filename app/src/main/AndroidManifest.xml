@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.thesegura.co.seguraluggage">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".privacy_policy"></activity>
         <activity android:name=".splashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,8 +28,7 @@
         <activity
             android:name=".UserData.addCustomer"
             android:parentActivityName=".Dashboard" />
-
-        <activity android:name=".Dashboard"/>
+        <activity android:name=".Dashboard" />
     </application>
 
 </manifest>

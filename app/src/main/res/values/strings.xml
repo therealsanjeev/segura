@@ -8,4 +8,5 @@
     <string name="about_us">About Us</string>
     <string name="privacy_policy">Privacy Policy</string>
     <string name="sign_out">Sign Out</string>
+    <string name="privacy_policy_content">@string/privacy_policy_text</string>
 </resources>

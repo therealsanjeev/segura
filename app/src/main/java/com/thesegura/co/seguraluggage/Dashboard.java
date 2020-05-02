@@ -128,6 +128,7 @@ public class Dashboard extends AppCompatActivity {
             case R.id.aboutus:
                 break;
             case R.id.privacy:
+                startActivity(new Intent(getApplicationContext(), privacy_policy.class));
                 break;
             case R.id.singOut:
                 AlertDialog.Builder builder=new AlertDialog.Builder(this);
