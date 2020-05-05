@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/home"
         android:icon="@drawable/ic_home_black_24dp"
         android:title="@string/home"/>
@@ -18,4 +19,5 @@
     <item android:id="@+id/singOut"
         android:icon="@drawable/ic_exit_to_app_black_24dp"
         android:title="@string/sign_out"/>
+
 </menu>
