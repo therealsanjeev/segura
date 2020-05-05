@@ -21,5 +21,7 @@ public class privacy_policy extends AppCompatActivity {
 
         toolbar = findViewById(R.id.toolBarOthers);
         toolbar.setTitle("Segura Privacy Policy");
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 }
