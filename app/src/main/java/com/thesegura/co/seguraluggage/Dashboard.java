@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -29,7 +28,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.thesegura.co.seguraluggage.ManagerData.privacy_policy;
+import com.thesegura.co.seguraluggage.ManagerData.profile;
 import com.thesegura.co.seguraluggage.UserData.addCustomer;
+import com.thesegura.co.seguraluggage.ManagerData.orderTracker;
 import com.thesegura.co.seguraluggage.verification.login;
 
 import java.util.Objects;
@@ -88,11 +90,6 @@ public class Dashboard extends AppCompatActivity {
         });
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.navigation_menu,menu);
-        return true;
-    }
 
     private void googleProfile() {
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -110,6 +107,7 @@ public class Dashboard extends AppCompatActivity {
     }
 
     public  void managerNameShowOnDash(){
+
         DocumentReference documentReference=fs.collection("Managers").document(auth.getCurrentUser().getUid());
         documentReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
@@ -125,9 +123,15 @@ public class Dashboard extends AppCompatActivity {
     private void UserMenu(MenuItem menuItem) {
         switch (menuItem.getItemId()){
             case R.id.home:
+                DrawerLayout mDrawerLayout;
+                mDrawerLayout = findViewById(R.id.drawer_layout);
+                mDrawerLayout.closeDrawers();
                 break;
             case R.id.profile:
                 startActivity(new Intent(getApplicationContext(), profile.class));
+                break;
+            case R.id.orderTracks:
+                startActivity(new Intent(Dashboard.this, orderTracker.class));
                 break;
             case R.id.feedback:
                 break;

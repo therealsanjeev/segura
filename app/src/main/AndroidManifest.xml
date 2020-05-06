@@ -19,13 +19,14 @@
             </intent-filter>
         </activity>
         <activity android:name=".verification.profile_details" />
-        <activity android:name=".profile" android:parentActivityName=".Dashboard" />
+        <activity android:name=".ManagerData.profile" android:parentActivityName=".Dashboard" />
         <activity android:name=".verification.verifyOTP" />
         <activity android:name=".verification.login" />
         <activity android:name=".UserData.addCustomer" android:parentActivityName=".Dashboard" />
 
         <activity android:name=".Dashboard"/>
-        <activity android:name=".privacy_policy" android:parentActivityName=".Dashboard"/>
+        <activity android:name=".ManagerData.privacy_policy" android:parentActivityName=".Dashboard"/>
+        <activity android:name=".ManagerData.orderTracker" android:parentActivityName=".Dashboard"/>
     </application>
 
 </manifest>

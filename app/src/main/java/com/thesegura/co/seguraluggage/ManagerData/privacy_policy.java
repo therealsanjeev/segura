@@ -1,4 +1,4 @@
-package com.thesegura.co.seguraluggage;
+package com.thesegura.co.seguraluggage.ManagerData;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.widget.TextView;
 import androidx.appcompat.widget.Toolbar;
+
+import com.thesegura.co.seguraluggage.R;
 
 public class privacy_policy extends AppCompatActivity {
     Toolbar toolbar;

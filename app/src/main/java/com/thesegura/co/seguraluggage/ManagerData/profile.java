@@ -1,4 +1,4 @@
-package com.thesegura.co.seguraluggage;
+package com.thesegura.co.seguraluggage.ManagerData;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -30,6 +30,7 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.thesegura.co.seguraluggage.R;
 
 import java.io.ByteArrayOutputStream;
 
@@ -52,7 +53,7 @@ public class profile extends AppCompatActivity {
         setContentView(R.layout.profile);
 
         toolbar = findViewById(R.id.toolBarOthers);
-        toolbar.setTitle("Profile");
+        toolbar.setTitle("My Account");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
