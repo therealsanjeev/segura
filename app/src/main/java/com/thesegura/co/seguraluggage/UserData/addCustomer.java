@@ -35,7 +35,7 @@ public class addCustomer extends AppCompatActivity {
         setContentView(R.layout.add_customer);
 
         toolbar=findViewById(R.id.toolBarOthers);
-        toolbar.setTitle("ADD USER");
+        toolbar.setTitle("Add Customer");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

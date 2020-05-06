@@ -16,7 +16,7 @@ public class privacy_policy extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_privacy_policy);
+        setContentView(R.layout.privacy_policy);
 
         textView = findViewById(R.id.privacyText);
         textView.setMovementMethod(new ScrollingMovementMethod());

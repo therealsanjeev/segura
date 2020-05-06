@@ -40,6 +40,7 @@
             android:layout_height="wrap_content"/>
 
         <EditText
+            android:maxLines="1"
             android:id="@+id/nameCustomer"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="10dp"
@@ -57,6 +58,7 @@
             android:layout_height="wrap_content"/>
 
         <EditText
+            android:maxLines="1"
             android:inputType="number"
             android:id="@+id/numberCustomer"
             android:layout_marginLeft="5dp"
@@ -75,6 +77,7 @@
             android:layout_height="wrap_content"/>
 
         <EditText
+            android:maxLines="1"
             android:inputType="number"
             android:id="@+id/luggageNo"
             android:layout_marginLeft="5dp"
