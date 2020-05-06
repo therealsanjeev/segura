@@ -43,8 +43,7 @@ import java.util.Queue;
 
 public class Dashboard extends AppCompatActivity {
 
-    TextView tvname;
-    TextView tvAmount;
+    TextView tvname,tvAmount,tvComplete;
     private ActionBarDrawerToggle actionBarDrawerToggle;
 
     FirebaseAuth auth;
@@ -62,6 +61,7 @@ public class Dashboard extends AppCompatActivity {
 
         tvname=findViewById(R.id.tvDashName);
         tvAmount=findViewById(R.id.tvAmount);
+        tvComplete=findViewById(R.id.tvComplete);
         userDataList=new ArrayList<>();
         auth=FirebaseAuth.getInstance();
         fs=FirebaseFirestore.getInstance();
@@ -141,6 +141,11 @@ public class Dashboard extends AppCompatActivity {
                             for(UserData l:userDataList){
                                 amount+=Integer.parseInt(l.getUserLuggage());
                             }
+//                            if(!userDataList.isEmpty()){
+//                                int size=userDataList.size();
+//                                tvComplete.setText(size);
+//                            }
+
                             tvAmount.setText(amount*60+"₹");
 
                         }
