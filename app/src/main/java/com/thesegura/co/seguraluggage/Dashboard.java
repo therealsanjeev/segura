@@ -54,7 +54,6 @@ public class Dashboard extends AppCompatActivity {
         auth=FirebaseAuth.getInstance();
         fs=FirebaseFirestore.getInstance();
 
-
         managerNameShowOnDash();
 //        googleProfile();
 

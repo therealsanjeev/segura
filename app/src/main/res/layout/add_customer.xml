@@ -19,13 +19,14 @@
         android:text="USER DETAILS :"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
+
     <LinearLayout
         android:layout_marginTop="10dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginLeft="15dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
         android:elevation="4dp"
         android:orientation="vertical"
-        android:background="@drawable/rectangular_back"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
@@ -39,6 +40,7 @@
             android:layout_height="wrap_content"/>
 
         <EditText
+            android:id="@+id/nameCustomer"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="10dp"
             android:hint="NAME"
@@ -55,6 +57,8 @@
             android:layout_height="wrap_content"/>
 
         <EditText
+            android:inputType="number"
+            android:id="@+id/numberCustomer"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="10dp"
             android:hint="NUMBER"
@@ -71,7 +75,8 @@
             android:layout_height="wrap_content"/>
 
         <EditText
-
+            android:inputType="number"
+            android:id="@+id/luggageNo"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="10dp"
             android:hint="e.g. 5"
@@ -83,6 +88,7 @@
 
     </LinearLayout>
     <Button
+        android:id="@+id/saveData"
         android:layout_margin="10dp"
         android:elevation="10dp"
         android:background="@drawable/rectangular_back"
@@ -91,6 +97,11 @@
         android:text="SUBMIT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
+    <ProgressBar
+        android:id="@+id/userPro"
+        android:visibility="invisible"
+        android:layout_width="42dp"
+        android:layout_height="42dp"/>
     <LinearLayout
         android:layout_weight="2"
         android:layout_width="match_parent"

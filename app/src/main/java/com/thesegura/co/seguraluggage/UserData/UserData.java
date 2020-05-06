@@ -14,9 +14,19 @@ public class UserData {
         this.userLuggage = userLuggage;
     }
 
-    public String getUserName() {
-        return userName;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
+
+    public void setUserPhone(String userPhone) {
+        this.userPhone = userPhone;
+    }
+
+    public void setUserLuggage(String userLuggage) {
+        this.userLuggage = userLuggage;
+    }
+
+    public String getUserName() { return userName; }
 
     public String getUserPhone() {
         return userPhone;

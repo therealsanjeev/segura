@@ -48,9 +48,11 @@ public class profile_details extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 progressBar.setVisibility(View.VISIBLE);
+                //Manager DATA:
                 String name=etName.getText().toString();
                 String email=etEmail.getText().toString();
                 String phone=etPhone.getText().toString();
+
                 userID=auth.getCurrentUser().getUid();
                 DocumentReference documentReference =firebaseFirestore.collection("Managers").document(userID);
                 Map<String,Object> manager = new HashMap<>();
