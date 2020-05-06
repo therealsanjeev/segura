@@ -12,6 +12,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <TextView
+                android:textStyle="bold"
                 android:id="@+id/orderName"
                 android:padding="5dp"
                 android:textSize="20sp"

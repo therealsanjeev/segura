@@ -28,17 +28,23 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.thesegura.co.seguraluggage.ManagerData.privacy_policy;
 import com.thesegura.co.seguraluggage.ManagerData.profile;
+import com.thesegura.co.seguraluggage.UserData.UserData;
 import com.thesegura.co.seguraluggage.UserData.addCustomer;
 import com.thesegura.co.seguraluggage.ManagerData.orderTracker;
 import com.thesegura.co.seguraluggage.verification.login;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+import java.util.Queue;
 
 public class Dashboard extends AppCompatActivity {
 
     TextView tvname;
+    TextView tvAmount;
     private ActionBarDrawerToggle actionBarDrawerToggle;
 
     FirebaseAuth auth;
@@ -46,13 +52,17 @@ public class Dashboard extends AppCompatActivity {
     GoogleSignInClient mGoogleSignInClient;
 
     private boolean backAlreadyPressed = false;
+    private List<UserData> userDataList;
+    private int amount=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dashboard);
-        tvname=findViewById(R.id.tvDashName);
 
+        tvname=findViewById(R.id.tvDashName);
+        tvAmount=findViewById(R.id.tvAmount);
+        userDataList=new ArrayList<>();
         auth=FirebaseAuth.getInstance();
         fs=FirebaseFirestore.getInstance();
 
@@ -118,6 +128,24 @@ public class Dashboard extends AppCompatActivity {
 
             }
         });
+        documentReference.collection("Customers").get()
+                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        if(!queryDocumentSnapshots.isEmpty()){
+                            List<DocumentSnapshot> list =queryDocumentSnapshots.getDocuments();
+                            for(DocumentSnapshot documentSnapshot:list){
+                                UserData userData=documentSnapshot.toObject(UserData.class);
+                                userDataList.add(userData);
+                            }
+                            for(UserData l:userDataList){
+                                amount+=Integer.parseInt(l.getUserLuggage());
+                            }
+                            tvAmount.setText(amount*60+"₹");
+
+                        }
+                    }
+                });
 
     }
     private void UserMenu(MenuItem menuItem) {
