@@ -86,6 +86,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ProgressBar
+                android:id="@+id/userPro"
+                android:visibility="invisible"
+                android:layout_width="42dp"
+                android:layout_height="42dp"/>
+            <EditText
+                android:visibility="invisible"
+                android:maxLines="1"
+                android:inputType="number"
+                android:id="@+id/etOtpAdd"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:hint="OTP"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+
 
 
 
@@ -98,13 +120,9 @@
         android:textSize="20sp"
         android:textColor="@color/textColor"
         android:text="SUBMIT"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"/>
-    <ProgressBar
-        android:id="@+id/userPro"
-        android:visibility="invisible"
-        android:layout_width="42dp"
-        android:layout_height="42dp"/>
+
     <LinearLayout
         android:layout_weight="2"
         android:layout_width="match_parent"

@@ -57,8 +57,6 @@ public class profile extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
-
         tvName = findViewById(R.id.tvManagerNamePro);
         tvEmail = findViewById(R.id.tvManagerEmailPro);
         tvPhone = findViewById(R.id.tvManagerPhonePro);
@@ -66,7 +64,6 @@ public class profile extends AppCompatActivity {
         imageButton=findViewById(R.id.changeProfile);
 //        headerName=findViewById(R.id.headerProfileName);
 //        headerEmail=findViewById(R.id.headerProfileEmail);
-
 
         auth=FirebaseAuth.getInstance();
         fs=FirebaseFirestore.getInstance();

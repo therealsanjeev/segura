@@ -35,6 +35,7 @@ import com.thesegura.co.seguraluggage.UserData.UserData;
 import com.thesegura.co.seguraluggage.UserData.addCustomer;
 import com.thesegura.co.seguraluggage.ManagerData.orderTracker;
 import com.thesegura.co.seguraluggage.verification.login;
+import com.thesegura.co.seguraluggage.verification.profile_details;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -124,6 +125,8 @@ public class Dashboard extends AppCompatActivity {
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 if(documentSnapshot.exists()){
                     tvname.setText(documentSnapshot.getString("Name"));
+                }else{
+                    Toast.makeText(Dashboard.this,"Enter your personal details first",Toast.LENGTH_LONG).show();
                 }
 
             }

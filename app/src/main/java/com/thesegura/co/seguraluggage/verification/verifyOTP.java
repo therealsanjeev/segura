@@ -39,7 +39,8 @@ public class verifyOTP extends AppCompatActivity {
     ProgressBar progressBar;
     PhoneAuthProvider.ForceResendingToken token;
     FirebaseUser user;
-    FirebaseAuth auth;
+    private FirebaseAuth auth;
+    private String num;
     FirebaseFirestore fs;
 
     Boolean flag=true;
@@ -52,27 +53,28 @@ public class verifyOTP extends AppCompatActivity {
         progressBar.setVisibility(View.INVISIBLE);
 
         auth=FirebaseAuth.getInstance();
+
         user=auth.getCurrentUser();
         fs=FirebaseFirestore.getInstance();
 
         etOtp=findViewById(R.id.etOtp);
         btVerify=findViewById(R.id.btVerifyNum);
         //sending otp:
-        String num=getIntent().getStringExtra("phoneNo");
+         num=getIntent().getStringExtra("phoneNo");
         sendOTP(num);
 
         btVerify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    String code=etOtp.getText().toString().trim();
-                    if(code.isEmpty() || code.length()<6){
-                        etOtp.setError("Not valid !");
-                        etOtp.requestFocus();
-                        return;
-                    }
-                    progressBar.setVisibility(View.VISIBLE);
-                    verifyCode(code);
 
+                String code=etOtp.getText().toString().trim();
+                if(code.isEmpty() || code.length()<6){
+                    etOtp.setError("Not valid !");
+                    etOtp.requestFocus();
+                    return;
+                }
+                progressBar.setVisibility(View.VISIBLE);
+                verifyCode(code);
 
             }
         });
@@ -83,6 +85,8 @@ public class verifyOTP extends AppCompatActivity {
         PhoneAuthCredential credential = PhoneAuthProvider.getCredential(codeSent, code);
         signInWithPhoneAuthCredential(credential);
     }
+    //here verify the user
+
     private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
         auth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -90,7 +94,7 @@ public class verifyOTP extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
                         if (task.isSuccessful()) {
-                            DocumentReference docRef=fs.collection("Managers").document(auth.getCurrentUser().getUid());
+                            DocumentReference docRef=fs.collection("Managers").document(num);
                             docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                                 @Override
                                 public void onSuccess(DocumentSnapshot documentSnapshot) {
@@ -151,4 +155,7 @@ public class verifyOTP extends AppCompatActivity {
             super.onCodeAutoRetrievalTimeOut(s);
         }
     };
+    public FirebaseAuth getAuth(){
+        return this.auth;
+    }
 }
