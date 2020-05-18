@@ -39,6 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <de.hdodenhof.circleimageview.CircleImageView
+                app:civ_circle_background_color="@color/colorPrimaryDark"
                 android:layout_marginBottom="10dp"
                 android:id="@+id/profile_image"
                 android:layout_width="150dp"
@@ -73,7 +74,7 @@
                 android:id="@+id/tvManagerNamePro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="manager name"
+                tools:text="manager name"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="20sp" />
         </LinearLayout>
@@ -89,14 +90,14 @@
 
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="20sp"
-                android:text="Email id : "
+                android:text="Email Id : "
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <TextView
                 android:id="@+id/tvManagerEmailPro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Email ID"
+                tools:text="Email ID"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="20sp" />
         </LinearLayout>
@@ -117,7 +118,27 @@
                 android:id="@+id/tvManagerPhonePro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Phone number"
+                tools:text="Phone number"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="20sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginLeft="5dp"
+            android:gravity="center|left"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <TextView
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="20sp"
+                android:text="Address : "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:text="Address"
+                android:id="@+id/tvManagerAddressPro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="20sp" />
         </LinearLayout>

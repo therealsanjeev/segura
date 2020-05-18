@@ -36,7 +36,7 @@ import java.io.ByteArrayOutputStream;
 
 public class profile extends AppCompatActivity {
 
-    TextView tvName,tvEmail,tvPhone,headerName,headerEmail;
+    TextView tvName,tvEmail,tvPhone,tvAddress;
     Toolbar toolbar;
     ImageView imageView;
     ImageButton imageButton;
@@ -60,6 +60,7 @@ public class profile extends AppCompatActivity {
         tvName = findViewById(R.id.tvManagerNamePro);
         tvEmail = findViewById(R.id.tvManagerEmailPro);
         tvPhone = findViewById(R.id.tvManagerPhonePro);
+        tvAddress=findViewById(R.id.tvManagerAddressPro);
         imageView=findViewById(R.id.profile_image);
         imageButton=findViewById(R.id.changeProfile);
 //        headerName=findViewById(R.id.headerProfileName);
@@ -80,9 +81,12 @@ public class profile extends AppCompatActivity {
                 assert documentSnapshot != null;
                 String name=documentSnapshot.getString("Name");
                 String email=documentSnapshot.getString("email");
+                String phone =documentSnapshot.getString("phone");
+                String address=documentSnapshot.getString("address");
                 tvName.setText(name);
                 tvEmail.setText(email);
-                tvPhone.setText(documentSnapshot.getString("phone"));
+                tvPhone.setText(phone);
+                tvAddress.setText(address);
 //                headerName.setText(name);
 //                headerEmail.setText(email);
             }
